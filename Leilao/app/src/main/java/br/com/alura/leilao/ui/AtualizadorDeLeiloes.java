@@ -12,6 +12,7 @@ public class AtualizadorDeLeiloes {
     public void buscaLeiloes(final ListaLeilaoAdapter adapter,
                              LeilaoWebClient client,
                              final ErroCarregaLeiloesListener erroListener) {
+
         client.todos(new RespostaListener<List<Leilao>>() {
             @Override
             public void sucesso(List<Leilao> leiloes) {

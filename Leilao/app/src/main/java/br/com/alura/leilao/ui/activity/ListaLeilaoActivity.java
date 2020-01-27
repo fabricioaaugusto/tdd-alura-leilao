@@ -49,12 +49,7 @@ public class ListaLeilaoActivity extends AppCompatActivity {
 
     private void configuraAdapter() {
         adapter = new ListaLeilaoAdapter(this);
-        adapter.setOnItemClickListener(new ListaLeilaoAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Leilao leilao) {
-                vaiParaTelaDeLances(leilao);
-            }
-        });
+        adapter.setOnItemClickListener(leilao -> vaiParaTelaDeLances(leilao));
     }
 
     private void vaiParaTelaDeLances(Leilao leilao) {
@@ -69,12 +64,7 @@ public class ListaLeilaoActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         atualizadorDeLeiloes.buscaLeiloes(adapter, client,
-                new AtualizadorDeLeiloes.ErroCarregaLeiloesListener() {
-                    @Override
-                    public void erroAoCarregar(String mensagem) {
-                        mostraMensagemDeFalha();
-                    }
-                });
+                mensagem -> mostraMensagemDeFalha());
     }
 
     private void mostraMensagemDeFalha() {

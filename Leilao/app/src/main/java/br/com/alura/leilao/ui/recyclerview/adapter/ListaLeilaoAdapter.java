@@ -68,6 +68,7 @@ public class ListaLeilaoAdapter extends RecyclerView.Adapter<ListaLeilaoAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
+            //itemView.setVisibility(View.GONE);
             descricao = itemView.findViewById(R.id.item_leilao_descricao);
             maiorLance = itemView.findViewById(R.id.item_leilao_maior_lance);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +84,6 @@ public class ListaLeilaoAdapter extends RecyclerView.Adapter<ListaLeilaoAdapter.
             descricao.setText(leilao.getDescricao());
             maiorLance.setText(formatadorDeMoeda.formata(leilao.getMaiorLance()));
         }
-
     }
 
     private Leilao pegaLeilaoPorPosicao(int posicao) {
@@ -93,5 +93,4 @@ public class ListaLeilaoAdapter extends RecyclerView.Adapter<ListaLeilaoAdapter.
     public interface OnItemClickListener {
         void onItemClick(Leilao leilao);
     }
-
 }
